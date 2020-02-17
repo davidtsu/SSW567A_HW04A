@@ -1,14 +1,14 @@
 '''
-gh_test.py
+GhTest.py
 David Tsu
 testing gh.py
 '''
 
 import unittest
-import gh
+import Gh
 
 class TestGh(unittest.TestCase):
-    ''' for testing gh.py '''
+    ''' for testing Gh.py '''
     def test_get_data(self):
         ''' tests for get_data method '''
         o = {

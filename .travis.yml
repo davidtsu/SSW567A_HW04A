@@ -1,7 +1,7 @@
 language: python
 python:
- - "3.5"
+ - "3.6"
 
 # command to run tests
 script:
- - python -m unittest gh_test
+ - python -m unittest GhTest
