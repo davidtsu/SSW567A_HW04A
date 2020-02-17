@@ -14,7 +14,7 @@ def get_user():
 
 def get_data(g):
     ''' fetches user repos '''
-    repo_url = f'https://api.github.com/users/{g}/repos'
+    repo_url = f"https://api.github.com/users/{g}/repos"
     github_data = requests.get(repo_url).json() # fetches and converts to JSON
 
     if not isinstance(github_data, list):
@@ -22,7 +22,7 @@ def get_data(g):
 
     d = dict()
     for i in github_data:
-        commit_url = f'https://api.github.com/repos/{g}/{i}/commits'
+        commit_url = f"https://api.github.com/repos/{g}/{i}/commits"
         r = requests.get(commit_url).json() # fetches and converts to JSON
         d[i['name']] = len(r)
 
