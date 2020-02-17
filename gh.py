@@ -23,7 +23,7 @@ def get_data(g):
     d = dict()
     for i in github_data:
         commit_url = f'https://api.github.com/repos/{g}/{i}/commits'
-        r = requests.get(commit_url).json()
+        r = requests.get(commit_url).json() #fetches and converts to JSON
         d[i['name']] = len(r)
 
     return d
