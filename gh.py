@@ -24,3 +24,14 @@ def get_data(g):
         return d
     except ValueError:
         print('Bad data.')
+
+def main():
+    try:
+        x = get_data(get_user())
+        for key in x:
+            print(f"Repo: {key}     Number of commits: {x[key]}")
+    except ValueError:
+        print('Bad data, try again.')
+
+if __name__ == '__main__':
+    main()
