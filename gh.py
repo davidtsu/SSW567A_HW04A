@@ -5,7 +5,6 @@ for fetching github data
 """
 
 import requests
-import json
 
 def get_user():
     ''' fetches username '''
