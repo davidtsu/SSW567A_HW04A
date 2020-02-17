@@ -26,6 +26,7 @@ def get_data(g):
         print('Bad data.')
 
 def main():
+    ''' running main '''
     try:
         x = get_data(get_user())
         for key in x:
