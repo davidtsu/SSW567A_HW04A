@@ -7,10 +7,13 @@ for fetching github data
 import requests
 import json
 
-def get_data():
-    ''' fetches user repos '''
+def get_user():
+    ''' fetches username '''
     g = input("Enter GitHub ID:").lower()
+    return g
 
+def get_data(g):
+    ''' fetches user repos '''
     repo_url = f'https://api.github.com/users/{g}/repos'
     github_data = requests.get(repo_url).json()
 
@@ -23,5 +26,4 @@ def get_data():
         r = requests.get(commit_url).json()
         d[i['name']] = len(r)
 
-    print(d)
     return d
