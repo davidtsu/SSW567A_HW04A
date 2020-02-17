@@ -15,7 +15,7 @@ def get_user():
 def get_data(g):
     ''' fetches user repos '''
     repo_url = f'https://api.github.com/users/{g}/repos'
-    github_data = requests.get(repo_url).json()
+    github_data = requests.get(repo_url).json() #fetches and converts to JSON
 
     if not isinstance(github_data, list):
         raise ValueError(f"{github_data['message']}")
