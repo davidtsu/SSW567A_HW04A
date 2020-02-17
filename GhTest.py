@@ -18,7 +18,7 @@ class TestGh(unittest.TestCase):
             'Project1': 2,
             'threads-of-life': 2
         }
-        self.assertEqual(gh.get_data('richkempinski'), o)
+        self.assertEqual(Gh.get_data('richkempinski'), o)
 
 if __name__ == '__main__':
     print('Running gh_test.py testing suite.')
