@@ -11,16 +11,38 @@ def get_user():
     g = input("Enter GitHub ID:").lower()
     return g
 
+def fetch_repo(r):
+    ''' takes URL, fetches repo data and returns as JSON '''
+    if not r:
+        raise 'No input string'
+    else:
+        response = requests.get(r).json() # fetches and converts to JSON
+        if isinstance(response, list):
+            return response
+        else:
+            raise ValueError('Bad response')
+
+def fetch_commit(r):
+    ''' takes URL, fetches commit data and returns as JSON '''
+    if not r:
+        raise 'No input string'
+    else:
+        response = requests.get(r).json() # fetches and converts to JSON
+        if isinstance(response, list):
+            return len(response)
+        else:
+            raise ValueError('Bad response')
+
 def get_data(g):
     ''' fetches user repos '''
     try:
         repo_url = f"https://api.github.com/users/{g}/repos"
-        github_data = requests.get(repo_url).json() # fetches and converts to JSON
+        github_data = fetch_repo(repo_url)
         d = dict()
         for i in github_data:
             commit_url = f"https://api.github.com/repos/{g}/{i}/commits"
-            r = requests.get(commit_url).json() # fetches and converts to JSON
-            d[i['name']] = len(r)
+            r = fetch_commit(commit_url)
+            d[i['name']] = r
         return d
     except ValueError:
         print('Bad data.')
